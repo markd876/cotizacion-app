@@ -12,7 +12,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 
 // Settings
 
-app.set('port', 3000)
+app.set('port', 5000)
 app.set('view engine', 'ejs')
 
 app.listen(3000, () =>{
