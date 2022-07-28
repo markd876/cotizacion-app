@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cotizacionDolar">
+        <h2>Cotizacion Dolares Argentina</h2>
+        <div class="divDolares">
+            <div class="divDolar">
+                <div class="nombreDolar">
+                    <span>Dolar Banco Nacion</span>
+                </div>
+                <div class="variacionDolar">
+                    <% let variacNumbna = dolares.bna.variacion %>
+                    <% let variacNumRepbna = variacNumbna.replace(/,/g, '.') %>
+                    <% let variacNumFloatbna = parseFloat(variacNumRepbna) %>
+                    <% if(variacNumFloatbna > 0) { %>
+                    <span class="spanVariacion" style="color: #00c28f;" > ▲ <%= dolares.bna.variacion %></span>
+                    <% } else if(variacNumFloatbna < 0){ %>
+                    <span class="spanVariacion" style="color: #eb0a3a;" > ▼ <%= dolares.bna.variacion %></span>
+                    <% } else { %>
+                    <span class="spanVariacion"><%= dolares.bna.variacion %></span>
+                    <% } %>
+                </div>
+                <div class="spreadDolar"><span>Spread: $</span>
+                    <%= dolares.bna.spread %>
+                </div>
+                <div class="cotizacionesDolar">
+                    <button class="buttonDolarCompra"><span id="spanDolarBlueCompra"><%= dolares.bna.compra %></span></button>
+                    <button class="buttonDolarVenta"><span id="spanDolarBlueVenta"><%= dolares.bna.venta %></span></button>
+                </div>
+            </div>
+            <div class="divDolar">
+                <div class="nombreDolar">
+                    <span>Dolar Ahorro</span>
+                </div>
+                <div class="variacionDolar">
+                    <% let variacNumahorro = dolares.ahorro.variacion %>
+                    <% let variacNumRepahorro = variacNumahorro.replace(/,/g, '.') %>
+                    <% let variacNumFloatahorro = parseFloat(variacNumRepahorro) %>
+                    <% if(variacNumFloatahorro > 0) { %>
+                    <span class="spanVariacion" style="color: #00c28f;" > ▲ <%= dolares.ahorro.variacion %></span>
+                    <% } else if(variacNumFloatahorro < 0){ %>
+                    <span class="spanVariacion" style="color: #eb0a3a;" > ▼ <%= dolares.ahorro.variacion %></span>
+                    <% } else { %>
+                    <span class="spanVariacion"><%= dolares.ahorro.variacion %></span>
+                    <% } %>
+                </div>
+                <div class="spreadDolar"><span>Spread: $</span>
+                    <%= dolares.ahorro.spread %>
+                </div>
+                <div class="cotizacionesDolar">
+                    <button class="buttonDolarCompra"><span id="spanDolarBlueCompra"><%= dolares.ahorro.compra %></span></button>
+                    <button class="buttonDolarVenta"><span id="spanDolarBlueVenta"><%= dolares.ahorro.venta %></span></button>
+                </div>
+            </div>
+            <div class="divDolar">
+                <div class="nombreDolar">
+                    <span>Dolar MEP</span>
+                </div>
+                <div class="variacionDolar">
+                    <% let variacNummep = dolares.mep.variacion %>
+                    <% let variacNumRepmep = variacNummep.replace(/,/g, '.') %>
+                    <% let variacNumFloatmep = parseFloat(variacNumRepmep) %>
+                    <% if(variacNumFloatmep > 0) { %>
+                    <span class="spanVariacion" style="color: #00c28f;" > ▲ <%= dolares.mep.variacion %></span>
+                    <% } else if(variacNumFloatmep < 0){ %>
+                    <span class="spanVariacion" style="color: #eb0a3a;" > ▼ <%= dolares.mep.variacion %></span>
+                    <% } else { %>
+                    <span class="spanVariacion"><%= dolares.mep.variacion %></span>
+                    <% } %>
+                </div>
+                <div class="spreadDolar"><span>Spread: $</span>
+                    <%= dolares.mep.spread %>
+                </div>
+                <div class="cotizacionesDolar">
+                    <button class="buttonDolarCompra"><span id="spanDolarBlueCompra"><%= dolares.mep.compra %></span></button>
+                    <button class="buttonDolarVenta"><span id="spanDolarBlueVenta"><%= dolares.mep.venta %></span></button>
+                </div>
+            </div>
+            <div class="divDolar">
+                <div class="nombreDolar">
+                    <span>Dolar CCL</span>
+                </div>
+                <div class="variacionDolar">
+                    <% let variacNumccl = dolares.ccl.variacion %>
+                    <% let variacNumRepccl = variacNumccl.replace(/,/g, '.') %>
+                    <% let variacNumFloatccl = parseFloat(variacNumRepccl) %>
+                    <% if(variacNumFloatccl > 0) { %>
+                    <span class="spanVariacion" style="color: #00c28f;" > ▲ <%= dolares.ccl.variacion %></span>
+                    <% } else if(variacNumFloatccl < 0){ %>
+                    <span class="spanVariacion" style="color: #eb0a3a;" > ▼ <%= dolares.ccl.variacion %></span>
+                    <% } else { %>
+                    <span class="spanVariacion"><%= dolares.ccl.variacion %></span>
+                    <% } %>
+                </div>
+                <div class="spreadDolar"><span>Spread: $</span>
+                    <%= dolares.ccl.spread %>
+                </div>
+                <div class="cotizacionesDolar">
+                    <button class="buttonDolarCompra"><span id="spanDolarBlueCompra"><%= dolares.ccl.compra %></span></button>
+                    <button class="buttonDolarVenta"><span id="spanDolarBlueVenta"><%= dolares.ccl.venta %></span></button>
+                </div>
+            </div>
+            <div class="divDolar">
+                <div class="nombreDolar">
+                    <span>Dolar Blue</span>
+                </div>
+                <div class="variacionDolar">
+                    <% let variacNumblue = dolares.blue.variacion %>
+                    <% let variacNumRepblue = variacNumblue.replace(/,/g, '.') %>
+                    <% let variacNumFloatblue = parseFloat(variacNumRepblue) %>
+                    <% if(variacNumFloatblue > 0) { %>
+                    <span class="spanVariacion" style="color: #00c28f;" > ▲ <%= dolares.blue.variacion %></span>
+                    <% } else if(variacNumFloatblue < 0){ %>
+                    <span class="spanVariacion" style="color: #eb0a3a;" > ▼ <%= dolares.blue.variacion %></span>
+                    <% } else { %>
+                    <span class="spanVariacion"><%= dolares.blue.variacion %></span>
+                    <% } %>
+                </div>
+                <div class="spreadDolar"><span>Spread: $</span>
+                    <%= dolares.blue.spread %>
+                </div>
+                <div class="cotizacionesDolar">
+                    <button class="buttonDolarCompra"><span id="spanDolarBlueCompra"><%= dolares.blue.compra %></span></button>
+                    <button class="buttonDolarVenta"><span id="spanDolarBlueVenta"><%= dolares.blue.venta %></span></button>
+                </div>
+            </div>
+            <div class="divDolar">
+                <div class="nombreDolar">
+                    <span>Dolar Turista</span>
+                </div>
+                <div class="variacionDolar">
+                    <% let variacNumturista = dolares.turista.variacion %>
+                    <% let variacNumRepturista = variacNumturista.replace(/,/g, '.') %>
+                    <% let variacNumFloatturista = parseFloat(variacNumRepturista) %>
+                    <% if(variacNumFloatturista > 0) { %>
+                    <span class="spanVariacion" style="color: #00c28f;" > ▲ <%= dolares.turista.variacion %></span>
+                    <% } else if(variacNumFloatturista < 0){ %>
+                    <span class="spanVariacion" style="color: #eb0a3a;" > ▼ <%= dolares.turista.variacion %></span>
+                    <% } else { %>
+                    <span class="spanVariacion"><%= dolares.turista.variacion %></span>
+                    <% } %>
+                </div>
+                <div class="spreadDolar"><span>Spread: $</span>
+                    <%= dolares.turista.spread %>
+                </div>
+                <div class="cotizacionesDolar">
+                    <button class="buttonDolarCompra"><span id="spanDolarBlueCompra"><%= dolares.turista.compra %></span></button>
+                    <button class="buttonDolarVenta"><span id="spanDolarBlueVenta"><%= dolares.turista.venta %></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="merval">
+        <div class="mervalT">
+            <h2>Cotizacion Acciones Argentinas</h2>
+        </div>
+        <div>
+            <table id="table_id" class="row-border">
+                <thead>
+                    <th>Ticker</th>
+                    <th>Precio</th>
+                    <th>Variacion</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Aluar_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.aluar.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.aluar.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <%= stocks.aluar.precio %>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                    <% let variacStock = stocks.aluar.variacion %>
+                                    <% let variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                    <% let variacNumFloatStock = parseFloat(variacNumStock) %>
+                                    <% if(variacNumFloatStock > 0) { %>
+                                    <span style="color: #00c28f;" ><%= stocks.aluar.variacion %></span>
+                                    <% } else if(variacNumFloatStock < 0){ %>
+                                    <span style="color: #eb0a3a;" ><%= stocks.aluar.variacion %></span>
+                                    <% } else { %>
+                                    <span><%= stocks.aluar.variacion %></span>
+                                    <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Bbar_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.bbar.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.bbar.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.bbar.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.bbar.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.bbar.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.bbar.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.bbar.variacion %></span>
+                                <% } %>
+                        </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Bma_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.bma.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.bma.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.bma.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.bma.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.bma.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.bma.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.bma.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Byma_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.byma.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.byma.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.byma.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.byma.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.byma.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.byma.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.byma.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Cepu_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.cepu.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.cepu.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.cepu.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.cepu.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.cepu.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.cepu.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.cepu.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Come_logo.jpeg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.come.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.come.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.come.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.come.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.come.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.come.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.come.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Cres_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.cres.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.cres.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.cres.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.cres.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.cres.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.cres.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.cres.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Cvh_logo.jpeg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.cvh.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.cvh.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.cvh.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.cvh.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.cvh.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.cvh.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.cvh.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Ggal_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.ggal.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.ggal.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.ggal.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.ggal.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.ggal.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.ggal.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.ggal.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="Edn_logo.jpeg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.edn.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.edn.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.edn.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.edn.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.edn.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.edn.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.edn.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="valo_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.valo.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.valo.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.valo.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.valo.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.valo.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.valo.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.valo.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="mirg_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.mirg.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.mirg.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.mirg.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.mirg.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.mirg.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.mirg.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.mirg.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="harg_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.harg.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.harg.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.harg.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.harg.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.harg.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.harg.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.harg.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="loma_logo.jpeg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.loma.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.loma.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.loma.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.loma.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.loma.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.loma.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.loma.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="pamp_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.pamp.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.pamp.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.pamp.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.pamp.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.pamp.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.pamp.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.pamp.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="rich_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.rich.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.rich.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.rich.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.rich.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.rich.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.rich.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.rich.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="supv_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.supv.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.supv.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.supv.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.supv.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.supv.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.supv.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.supv.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="teco_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.teco.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.teco.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.teco.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.teco.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.teco.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.teco.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.teco.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="tgno_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.tgno.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.tgno.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.tgno.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.tgno.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.tgno.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.tgno.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.tgno.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="tgsu_logo.jpeg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.tgsu.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.tgsu.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.tgsu.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.tgsu.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.tgsu.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.tgsu.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.tgsu.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="tran_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.tran.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.tran.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.tran.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.tran.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.tran.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.tran.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.tran.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="txar_logo.png" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.txar.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.txar.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.txar.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.txar.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.txar.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.txar.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.txar.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tdStc">
+                                <div>
+                                    <img src="ypfd_logo.jpg" class="imgStock" height="30px" width="30px">
+                                </div>
+                                <div class="nomTic">
+                                    <div class="ticStc">
+                                        <%= stocks.ypfd.ticker %>
+                                    </div>
+                                    <div class="nomStc">
+                                        <%= stocks.ypfd.nombre %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><%= stocks.ypfd.precio %></td>
+                        <td>
+                            <div>
+                                <% variacStock = stocks.ypfd.variacion %>
+                                <% variacNumStock = variacStock.replace(/[+]/g, '') %>
+                                <% variacNumFloatStock = parseFloat(variacNumStock) %>
+                                <% if(variacNumFloatStock > 0) { %>
+                                <span style="color: #00c28f;" ><%= stocks.ypfd.variacion %></span>
+                                <% } else if(variacNumFloatStock < 0){ %>
+                                <span style="color: #eb0a3a;" ><%= stocks.ypfd.variacion %></span>
+                                <% } else { %>
+                                <span><%= stocks.ypfd.variacion %></span>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    </div>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script>$('#table_id').DataTable({
+        'dom': 'rt',
+        paging: false,
+    })</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+*{
+    font-family: 'Readex Pro', sans-serif;
+    background-color: rgb(26, 32, 44);
+    color: white;
+    font-weight: 300;
+}
+span{
+    background-color: transparent;
+}
+.spanVariacion {
+    background-color: transparent;
+}
+.cotizacionDolar{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.divDolares{
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 33%;
+}
+.buttonDolarVenta{
+    background-color: #00c28f;
+    border: transparent;
+    border-radius: 25px;
+    height: 35px;
+    width: 110px;
+    margin-left: 5px;
+}
+.buttonDolarCompra{
+    background-color: #eb0a3a;
+    border: transparent;
+    border-radius: 25px;
+    height: 35px;
+    width: 110px;
+}
+.divDolar{
+    margin: 5px;
+    display: flex;
+    height: 150px;
+    width: 300px;
+    border: 2.5px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: lightgray;
+    align-items: center;
+    flex-direction: column;
+}
+.nombreDolar{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+}
+.cotizacionesDolar{
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+}
+.variacionDolar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.merval{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.mervalT{
+    margin-bottom: 20px;
+}       
+.sorting_1{
+    height: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgStock{
+    margin-right: 15px;
+}
+.nomTic{
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+}
+.tdStc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.even td {
+    border-bottom: 1px solid white;
+  }
+.odd td {
+    border-bottom: 1px solid white;
+  }
