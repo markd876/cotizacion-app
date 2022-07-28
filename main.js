@@ -46,6 +46,8 @@ async function getDolares(){
                 }
             }
             Object.assign(dolares, bna)
+        }).catch((err)=>{
+            console.error(err)
         })
     await fetch('https://mercados.ambito.com//dolarahorro/variacion')
         .then(async(response) =>{
@@ -63,6 +65,8 @@ async function getDolares(){
                 }
             }
             Object.assign(dolares, ahorro)
+        }).catch((err)=>{
+            console.error(err)
         })
     await fetch('https://mercados.ambito.com//dolarrava/mep/variacion')
         .then(async(response) =>{
@@ -80,6 +84,8 @@ async function getDolares(){
                 }
             }
             Object.assign(dolares, mep)
+        }).catch((err)=>{
+            console.error(err)
         })
     await fetch('https://mercados.ambito.com//dolarrava/cl/variacion')
         .then(async(response) =>{
@@ -97,6 +103,8 @@ async function getDolares(){
                 }
             }
             Object.assign(dolares, ccl)
+        }).catch((err)=>{
+            console.error(err)
         })
     await fetch('https://mercados.ambito.com//dolar/informal/variacion')
         .then(async(response) =>{
@@ -115,6 +123,9 @@ async function getDolares(){
             }
             Object.assign(dolares, blue)
         })
+        .catch((err)=>{
+            console.error(err)
+        })
     await fetch('https://mercados.ambito.com//dolarturista/variacion')
         .then(async(response) =>{
             return await response.json()
@@ -132,6 +143,8 @@ async function getDolares(){
             }
             Object.assign(dolares, turista)
             console.log(dolares)
+        }).catch((err)=>{
+            console.error(err)
         })
 }
 /* setInterval(function(){
