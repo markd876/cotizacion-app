@@ -15,8 +15,8 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 app.set('port', 5000)
 app.set('view engine', 'ejs')
 
-app.listen(3000, () =>{
-    console.log('server iniciado en puerto 3000')
+app.listen(5000, () =>{
+    console.log('server iniciado en puerto 5000')
 })
 app.get('/', (req, res) =>{
     res.render('index.ejs', {dolares: dolares, stocks: stocks})
