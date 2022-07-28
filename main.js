@@ -30,10 +30,9 @@ let dolares = {}
 let cotdolarBna 
 let blue
 async function getDolares(){
-    await fetch('https://mercados.ambito.com//dolarnacion//variacion')
-        .then(async(response) =>{
-            return await response.json()
-        }).then((resp) =>{
+    await axios('https://mercados.ambito.com//dolarnacion//variacion')
+            .then((resp) =>{
+            resp = resp.data
             let respCompCom = resp.compra.replace(/['"]+/g, '')
             let respVentCom = resp.venta.replace(/['"]+/g, '')
             bna = {
@@ -49,10 +48,9 @@ async function getDolares(){
         }).catch((err)=>{
             console.error(err)
         })
-    await fetch('https://mercados.ambito.com//dolarahorro/variacion')
-        .then(async(response) =>{
-            return await response.json()
-        }).then((resp) =>{
+    await axios('https://mercados.ambito.com//dolarahorro/variacion')
+            .then((resp) =>{
+            resp = resp.data
             let respCompCom = resp.compra.replace(/['"]+/g, '')
             let respVentCom = resp.venta.replace(/['"]+/g, '')
             ahorro = {
@@ -68,10 +66,9 @@ async function getDolares(){
         }).catch((err)=>{
             console.error(err)
         })
-    await fetch('https://mercados.ambito.com//dolarrava/mep/variacion')
-        .then(async(response) =>{
-            return await response.json()
-        }).then((resp) =>{
+    await axios('https://mercados.ambito.com//dolarrava/mep/variacion')
+            .then((resp) =>{
+            resp = resp.data
             let respCompCom = resp.compra.replace(/['"]+/g, '')
             let respVentCom = resp.venta.replace(/['"]+/g, '')
             mep = {
@@ -87,10 +84,9 @@ async function getDolares(){
         }).catch((err)=>{
             console.error(err)
         })
-    await fetch('https://mercados.ambito.com//dolarrava/cl/variacion')
-        .then(async(response) =>{
-            return await response.json()
-        }).then((resp) =>{
+    await axios('https://mercados.ambito.com//dolarrava/cl/variacion')
+            .then((resp) =>{
+            resp = resp.data
             let respCompCom = resp.compra.replace(/['"]+/g, '')
             let respVentCom = resp.venta.replace(/['"]+/g, '')
             ccl = {
@@ -106,10 +102,9 @@ async function getDolares(){
         }).catch((err)=>{
             console.error(err)
         })
-    await fetch('https://mercados.ambito.com//dolar/informal/variacion')
-        .then(async(response) =>{
-            return await response.json()
-        }).then((resp) =>{
+    await axios('https://mercados.ambito.com//dolar/informal/variacion')
+            .then((resp) =>{
+            resp = resp.data
             let respCompCom = resp.compra.replace(/['"]+/g, '')
             let respVentCom = resp.venta.replace(/['"]+/g, '')
             blue = {
@@ -126,10 +121,9 @@ async function getDolares(){
         .catch((err)=>{
             console.error(err)
         })
-    await fetch('https://mercados.ambito.com//dolarturista/variacion')
-        .then(async(response) =>{
-            return await response.json()
-        }).then((resp) =>{
+    await axios('https://mercados.ambito.com//dolarturista/variacion')
+            .then((resp) =>{
+            resp = resp.data
             let respCompCom = resp.compra.replace(/['"]+/g, '')
             let respVentCom = resp.venta.replace(/['"]+/g, '')
             turista = {
