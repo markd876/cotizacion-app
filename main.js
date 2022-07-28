@@ -30,116 +30,129 @@ let dolares = {}
 let cotdolarBna 
 let blue
 async function getDolares(){
-    await axios('https://mercados.ambito.com//dolarnacion//variacion')
-            .then((resp) =>{
-            resp = resp.data
-            let respCompCom = resp.compra.replace(/['"]+/g, '')
-            let respVentCom = resp.venta.replace(/['"]+/g, '')
-            bna = {
-                bna : {
-                    nombre : 'Dolar Banco Nacion',
-                    compra : resp.compra,
-                    venta : resp.venta,
-                    variacion : resp.variacion,
-                    spread : parseInt(respVentCom) - parseInt(respCompCom)
-                }
+    await Promise.all([getDolarBna(),getDolarAhorro(),getDolarMep(),getDolarCCL(),getDolarBlue(),getDolarTurista()])
+    async function getDolarBna(){
+        await axios('https://mercados.ambito.com//dolarnacion//variacion')
+        .then((resp) =>{
+        resp = resp.data
+        let respCompCom = resp.compra.replace(/['"]+/g, '')
+        let respVentCom = resp.venta.replace(/['"]+/g, '')
+        bna = {
+            bna : {
+                nombre : 'Dolar Banco Nacion',
+                compra : resp.compra,
+                venta : resp.venta,
+                variacion : resp.variacion,
+                spread : parseInt(respVentCom) - parseInt(respCompCom)
             }
-            Object.assign(dolares, bna)
-        }).catch((err)=>{
-            console.error(err)
-        })
-    await axios('https://mercados.ambito.com//dolarahorro/variacion')
-            .then((resp) =>{
-            resp = resp.data
-            let respCompCom = resp.compra.replace(/['"]+/g, '')
-            let respVentCom = resp.venta.replace(/['"]+/g, '')
-            ahorro = {
-                ahorro : {
-                    nombre : 'Dolar Ahorro',
-                    compra : resp.compra,
-                    venta : resp.venta,
-                    variacion : resp.variacion,
-                    spread : parseInt(respVentCom) - parseInt(respCompCom)
-                }
+        }
+        Object.assign(dolares, bna)
+    }).catch((err)=>{
+        console.error(err)
+    })
+    }
+    async function getDolarAhorro(){
+        await axios('https://mercados.ambito.com//dolarahorro/variacion')
+        .then((resp) =>{
+        resp = resp.data
+        let respCompCom = resp.compra.replace(/['"]+/g, '')
+        let respVentCom = resp.venta.replace(/['"]+/g, '')
+        ahorro = {
+            ahorro : {
+                nombre : 'Dolar Ahorro',
+                compra : resp.compra,
+                venta : resp.venta,
+                variacion : resp.variacion,
+                spread : parseInt(respVentCom) - parseInt(respCompCom)
             }
-            Object.assign(dolares, ahorro)
-        }).catch((err)=>{
-            console.error(err)
-        })
-    await axios('https://mercados.ambito.com//dolarrava/mep/variacion')
-            .then((resp) =>{
-            resp = resp.data
-            let respCompCom = resp.compra.replace(/['"]+/g, '')
-            let respVentCom = resp.venta.replace(/['"]+/g, '')
-            mep = {
-                mep : {
-                    nombre : 'Dolar MEP',
-                    compra : resp.compra,
-                    venta : resp.venta,
-                    variacion : resp.variacion,
-                    spread : parseInt(respVentCom) - parseInt(respCompCom)
-                }
+        }
+        Object.assign(dolares, ahorro)
+    }).catch((err)=>{
+        console.error(err)
+    })
+    }
+    async function getDolarMep(){
+        await axios('https://mercados.ambito.com//dolarrava/mep/variacion')
+        .then((resp) =>{
+        resp = resp.data
+        let respCompCom = resp.compra.replace(/['"]+/g, '')
+        let respVentCom = resp.venta.replace(/['"]+/g, '')
+        mep = {
+            mep : {
+                nombre : 'Dolar MEP',
+                compra : resp.compra,
+                venta : resp.venta,
+                variacion : resp.variacion,
+                spread : parseInt(respVentCom) - parseInt(respCompCom)
             }
-            Object.assign(dolares, mep)
-        }).catch((err)=>{
-            console.error(err)
-        })
-    await axios('https://mercados.ambito.com//dolarrava/cl/variacion')
-            .then((resp) =>{
-            resp = resp.data
-            let respCompCom = resp.compra.replace(/['"]+/g, '')
-            let respVentCom = resp.venta.replace(/['"]+/g, '')
-            ccl = {
-                ccl : {
-                    nombre : 'Dolar CCL',
-                    compra : resp.compra,
-                    venta : resp.venta,
-                    variacion : resp.variacion,
-                    spread : parseInt(respVentCom) - parseInt(respCompCom)
-                }
+        }
+        Object.assign(dolares, mep)
+    }).catch((err)=>{
+        console.error(err)
+    })
+    }
+    async function getDolarCCL(){
+        await axios('https://mercados.ambito.com//dolarrava/cl/variacion')
+        .then((resp) =>{
+        resp = resp.data
+        let respCompCom = resp.compra.replace(/['"]+/g, '')
+        let respVentCom = resp.venta.replace(/['"]+/g, '')
+        ccl = {
+            ccl : {
+                nombre : 'Dolar CCL',
+                compra : resp.compra,
+                venta : resp.venta,
+                variacion : resp.variacion,
+                spread : parseInt(respVentCom) - parseInt(respCompCom)
             }
-            Object.assign(dolares, ccl)
-        }).catch((err)=>{
-            console.error(err)
-        })
-    await axios('https://mercados.ambito.com//dolar/informal/variacion')
-            .then((resp) =>{
-            resp = resp.data
-            let respCompCom = resp.compra.replace(/['"]+/g, '')
-            let respVentCom = resp.venta.replace(/['"]+/g, '')
-            blue = {
-                blue : {
-                    nombre : 'Dolar Blue',
-                    compra : resp.compra,
-                    venta : resp.venta,
-                    variacion : resp.variacion,
-                    spread : parseInt(respVentCom) - parseInt(respCompCom)
-                }
+        }
+        Object.assign(dolares, ccl)
+    }).catch((err)=>{
+        console.error(err)
+    })
+    }
+    async function getDolarBlue(){
+        await axios('https://mercados.ambito.com//dolar/informal/variacion')
+        .then((resp) =>{
+        resp = resp.data
+        let respCompCom = resp.compra.replace(/['"]+/g, '')
+        let respVentCom = resp.venta.replace(/['"]+/g, '')
+        blue = {
+            blue : {
+                nombre : 'Dolar Blue',
+                compra : resp.compra,
+                venta : resp.venta,
+                variacion : resp.variacion,
+                spread : parseInt(respVentCom) - parseInt(respCompCom)
             }
-            Object.assign(dolares, blue)
-        })
-        .catch((err)=>{
-            console.error(err)
-        })
-    await axios('https://mercados.ambito.com//dolarturista/variacion')
-            .then((resp) =>{
-            resp = resp.data
-            let respCompCom = resp.compra.replace(/['"]+/g, '')
-            let respVentCom = resp.venta.replace(/['"]+/g, '')
-            turista = {
-                turista : {
-                    nombre : 'Dolar Turista',
-                    compra : resp.compra,
-                    venta : resp.venta,
-                    variacion : resp.variacion,
-                    spread : parseInt(respVentCom) - parseInt(respCompCom)
-                }
+        }
+        Object.assign(dolares, blue)
+    })
+    .catch((err)=>{
+        console.error(err)
+    })
+    }
+    async function getDolarTurista(){
+        await axios('https://mercados.ambito.com//dolarturista/variacion')
+        .then((resp) =>{
+        resp = resp.data
+        let respCompCom = resp.compra.replace(/['"]+/g, '')
+        let respVentCom = resp.venta.replace(/['"]+/g, '')
+        turista = {
+            turista : {
+                nombre : 'Dolar Turista',
+                compra : resp.compra,
+                venta : resp.venta,
+                variacion : resp.variacion,
+                spread : parseInt(respVentCom) - parseInt(respCompCom)
             }
-            Object.assign(dolares, turista)
-            console.log(dolares)
-        }).catch((err)=>{
-            console.error(err)
-        })
+        }
+        Object.assign(dolares, turista)
+        console.log(dolares)
+    }).catch((err)=>{
+        console.error(err)
+    })
+    }
 }
 /* setInterval(function(){
     getDolares()
