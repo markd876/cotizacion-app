@@ -12,10 +12,10 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 
 // Settings
 
-app.set('port', 5000)
+app.set('port', process.env.PORT || 5000)
 app.set('view engine', 'ejs')
 
-app.listen(5000, () =>{
+app.listen(process.env.PORT || 5000, () =>{
     console.log('server iniciado en puerto 5000')
 })
 app.get('/', (req, res) =>{
