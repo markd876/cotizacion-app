@@ -27,20 +27,24 @@ app.use(express.static('images'))
 app.use(express.static('index.html'))
 
 let stocks 
-fs.readFile('./stocks.json','utf8',(err,data) =>{
-    if(err){
-        console.error(err)
-    } else{
-        stocks = JSON.parse(data)
-    }
-})
-fs.readFile('./dolares.json','utf8',(err,data) =>{
-    if(err){
-        console.error(err)
-    } else{
-        dolares = JSON.parse(data)
-    }
-})
+
+setInterval(() => {
+    fs.readFile('./stocks.json','utf8',(err,data) =>{
+        if(err){
+            console.error(err)
+        } else{
+            stocks = JSON.parse(data)
+        }
+    })
+    fs.readFile('./dolares.json','utf8',(err,data) =>{
+        if(err){
+            console.error(err)
+        } else{
+            dolares = JSON.parse(data)
+        }
+    })
+    console.log('front updated')
+}, 60000);
 
 
 
