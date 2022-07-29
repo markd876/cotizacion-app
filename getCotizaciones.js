@@ -21,7 +21,7 @@ updateDolares()
 setInterval(() => {
     updateStocks()
     updateDolares()
-}, 30000);
+}, 120000);
 
 
 async function updateStocks(){
