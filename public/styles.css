@@ -1,8 +1,13 @@
 *{
     font-family: 'Readex Pro', sans-serif;
-    background-color: rgb(26, 32, 44);
     color: white;
     font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100%;
+    background-color: rgb(26, 32, 44);
 }
 span{
     background-color: transparent;
@@ -12,14 +17,16 @@ span{
 }
 .cotizacionDolar{
     width: 100%;
-    height: 500px;
+    margin-top: 50px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 .divDolares{
-    width: 65%;
+    width: 1000px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,3 +114,30 @@ span{
 .odd td {
     border-bottom: 1px solid white;
   }
+
+@media only screen and (max-width: 1100px){
+    body{
+        width: 100%;
+    }
+    .divDolares{
+        margin-top: 30px;
+        height: 100%;
+        width: 75%;
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+    }
+    .nomTic{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .sorting_1{
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mervalT{
+        margin-bottom: 40px;
+    }   
+}
